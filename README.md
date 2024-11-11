@@ -14,6 +14,10 @@
 
 # RAGSkeleton
 
+![RAGSkeleton-logo](docs/_static/RAGSkeleton-logo.png)
+
+*Figure: Schematic of a Retrieval-Augmented Generation (RAG) system. Adapted from [Elevating Your Retrieval Game: Insights from Real-world Deployments](https://blog.ml6.eu/elevating-your-retrieval-game-insights-from-real-world-deployments-84ccfcbe6422).*
+
 **RAGSkeleton**: A foundational, modular framework for building customizable Retrieval-Augmented Generation (RAG) systems across any domain.
 
 This project was originally developed as a Retrieval-Augmented Generation (RAG) system for materials science literature. However, it can be easily adapted for any domain with minimal modifications, making it a flexible RAG skeleton architecture. Users can adjust the system prompt to tailor responses to any field, making this setup a versatile foundation for a RAG system.
@@ -118,7 +122,7 @@ This will prompt you for your Hugging Face access token. After logging in, you c
 ### Option 2: API Mode
 In API mode, the model is accessed via the Hugging Face API. This is useful if you prefer not to host the model locally or lack the computational resources.
 
-**Run the Chatbot via API**
+**Run the Chatbot via Hugging Face API**
 
    ```bash
    python src/rag_skeleton/run.py --load_mode api --model_name "your_model_name" --api_token YOUR_API_TOKEN
@@ -144,6 +148,8 @@ When you run the RAG system, you'll be greeted with:
    ```
 
 Type your questions into the chatbot interface. The system will provide answers grounded in the content of your documents.
+
+The response will include sources for the context used in generating the answer, helping you trace the information back to the original documents. These sources will be listed at the end of the response, labeled with document titles or other metadata for easy reference.
 
 **To exit**, simply type `exit`.
 
