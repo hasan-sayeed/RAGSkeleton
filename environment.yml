@@ -5,7 +5,7 @@ channels:
   - pytorch
   # - fastai
 dependencies:
-  - python>=3.6
+  - python==3.10.15
   - pip
   # BASICS
   - numpy
@@ -39,6 +39,14 @@ dependencies:
   # - snakeviz
   - pip:
      - -e .  # install git checkout of rag_skeleton in editable mode
+     - langchain==0.3.7
+     - langchain-community==0.3.5
+     - langchain-chroma==0.1.4
+     - langchain-huggingface==0.1.2
+     - pymupdf==1.24.13
+     - sentence-transformers==3.2.1
+     # - bitsandbytes==0.44.1
+     # - accelerate==1.1.1
      # add here only pip-packages that are not available in conda/conda-forge! E.g.:
      # - icecream
      # - jax
