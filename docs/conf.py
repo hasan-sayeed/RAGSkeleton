@@ -72,6 +72,8 @@ extensions = [
     "sphinx.ext.ifconfig",
     "sphinx.ext.mathjax",
     "sphinx.ext.napoleon",
+    "sphinx_autodoc_typehints",
+    "myst_parser",  # For markdown support if you use markdown files
 ]
 
 # Add any paths that contain templates here, relative to this directory.
@@ -105,7 +107,7 @@ source_suffix = [".rst", ".md"]
 master_doc = "index"
 
 # General information about the project.
-project = "rag_skeleton"
+project = "RAGSkeleton"
 copyright = "2024, Hasan Muhammad Sayeed"
 
 # The version info for the project you're documenting, acts as replacement for
@@ -164,21 +166,21 @@ pygments_style = "sphinx"
 # keep_warnings = False
 
 # If this is True, todo emits a warning for each TODO entries. The default is False.
-todo_emit_warnings = True
-
+todo_emit_warnings = False
+todo_include_todos = False
 
 # -- Options for HTML output -------------------------------------------------
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-html_theme = "alabaster"
+html_theme = "sphinx_rtd_theme" #"alabaster"
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
 html_theme_options = {
-    "sidebar_width": "300px",
-    "page_width": "1200px"
+    # "sidebar_width": "300px",
+    # "page_width": "1200px"
 }
 
 # Add any paths that contain custom themes here, relative to this directory.

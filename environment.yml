@@ -45,8 +45,14 @@ dependencies:
      - langchain-huggingface==0.1.2
      - pymupdf==1.24.13
      - sentence-transformers==3.2.1
-     # - bitsandbytes==0.44.1
-     # - accelerate==1.1.1
+    # - bitsandbytes==0.44.1
+    # - accelerate==1.1.1
+    # used to create documentation
+    #  - sphinx==8.1.3 
+    #  - sphinx-autodoc-typehints==2.5.0 
+    #  - sphinx_rtd_theme==3.0.1
+    #  - myst-parser==4.0.0
+    #  - linkify-it-py==2.0.3
      # add here only pip-packages that are not available in conda/conda-forge! E.g.:
      # - icecream
      # - jax

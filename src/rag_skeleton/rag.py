@@ -18,9 +18,13 @@ class RAGPipeline:
 
         Parameters:
         - vectordb_path: str, path to the ChromaDB vector database directory.
+
         - embedding_model_name: str, name of the embedding model used for query embeddings.
+
         - model_name: str, LLM model name for generation.
+
         - load_mode: str, whether to load the model locally or from the Hugging Face API ("local" or "api").
+
         - api_token: str, Hugging Face API token, required if load_mode is "api".
         """
         # Set up document retriever
@@ -60,16 +64,22 @@ class RAGPipeline:
         Sets up the full RAG pipeline with retrieval, prompt formatting, and text generation.
 
         This method configures the RAG pipeline by:
-        - Defining the prompt template that guides the language model on how to respond to user queries.
-        - Initializing the `PromptTemplate` with the defined format to structure the question, context, and conversation history.
-        - Setting up the `rag_chain` pipeline, which includes:
-            - Document retrieval: Retrieves relevant documents based on the user’s query.
-            - Context formatting: Incorporates retrieved documents and conversation history.
-            - Language model invocation: Passes the formatted prompt to the language model for generating a response.
-            - Output parsing: Structures the final output format for the response.
+            - Defining the prompt template that guides the language model on how to respond to user queries.
+
+            - Initializing the `PromptTemplate` with the defined format to structure the question, context, and conversation history.
+
+            - Setting up the `rag_chain` pipeline, which includes:
+
+                - Document retrieval: Retrieves relevant documents based on the user’s query.
+
+                - Context formatting: Incorporates retrieved documents and conversation history.
+
+                - Language model invocation: Passes the formatted prompt to the language model for generating a response.
+                
+                - Output parsing: Structures the final output format for the response.
 
         Raises:
-        - ValueError: If any pipeline component is misconfigured.
+            ValueError: If any pipeline component is misconfigured.
 
         The final `rag_chain` processes queries end-to-end, combining retrieval and generation.
         """

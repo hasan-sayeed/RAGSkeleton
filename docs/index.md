@@ -1,6 +1,8 @@
-# rag_skeleton
+# RAGSkeleton
 
-Add a short description here!
+![RAGSkeleton Logo](./_static/RAGSkeleton-logo.png)
+
+RAGSkeleton: A foundational, modular framework for building customizable Retrieval-Augmented Generation (RAG) systems across any domain.
 
 
 ## Note

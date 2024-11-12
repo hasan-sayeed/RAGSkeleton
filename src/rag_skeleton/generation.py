@@ -7,6 +7,7 @@ from langchain_huggingface import HuggingFaceEndpoint
 class TextGenerator:
     """
     Generates text responses using a specified LLM model.
+
     """
 
     def __init__(self, model_name="meta-llama/Llama-3.2-3B-Instruct", device=None, load_mode="local", api_token=None):
@@ -14,10 +15,15 @@ class TextGenerator:
         Initializes the TextGenerator with a model name, device setting, and load mode.
 
         Parameters:
-        - model_name: str, HuggingFace model ID.
-        - device: int or str, device to run the model on (e.g., "cuda" for GPU, -1 or "cpu" for CPU).
-        - load_mode: str, whether to load the model locally or from the Hugging Face API ("local" or "api").
-        - api_token: str, Hugging Face API token, required if load_mode is "api".
+
+            - model_name: str, HuggingFace model ID.
+
+            - device: int or str, device to run the model on (e.g., "cuda" for GPU, -1 or "cpu" for CPU).
+
+            - load_mode: str, whether to load the model locally or from the Hugging Face API ("local" or "api").
+
+            - api_token: str, Hugging Face API token, required if load_mode is "api".
+
         """
         self.model_name = model_name
         self.load_mode = load_mode
@@ -35,14 +41,17 @@ class TextGenerator:
         locally from the Hugging Face repository.
 
         Raises:
-        - ValueError: If `load_mode` is "api" and `api_token` is not provided.
+            ValueError: If `load_mode` is "api" and `api_token` is not provided.
         
         Configurations:
-        - For both "api" and "local" modes, specific parameters such as `temperature`, 
-          `do_sample`, `repetition_penalty`, and `max_new_tokens` are set to control 
-          text generation behavior.
-        - For the local model, the `eos_token_id` parameter is set to stop generation at 
-          specified tokens, ensuring response clarity.
+
+            - For both "api" and "local" modes, specific parameters such as `temperature`, 
+              `do_sample`, `repetition_penalty`, and `max_new_tokens` are set to control 
+              text generation behavior.
+            
+            - For the local model, the `eos_token_id` parameter is set to stop generation at 
+              specified tokens, ensuring response clarity.
+
         """
         if self.load_mode == "api":
             if not self.api_token:

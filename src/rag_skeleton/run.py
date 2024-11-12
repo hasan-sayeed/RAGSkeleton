@@ -1,22 +1,26 @@
 # src/rag_skeleton/run.py
 import argparse
-from rag import RAGPipeline
+from rag_skeleton.rag import RAGPipeline
 
 def main(load_mode="local", model_name="meta-llama/Llama-3.2-3B-Instruct", api_token=None):
     """
     Initializes the RAG pipeline and starts an interactive chatbot session.
 
     Parameters:
+
     - load_mode (str): Specifies whether to load the model locally or via Hugging Face API.
                        Options are 'local' (default) or 'api'.
+
     - model_name (str): The name of the language model to use for generation.
                         Default is 'meta-llama/Llama-3.2-3B-Instruct'.
+
     - api_token (str, optional): Hugging Face API token, required if `load_mode` is set to 'api'.
                                  Default is None.
     
     This function initializes the RAG pipeline with the specified configuration and starts
     an interactive loop where the user can ask questions and receive responses based on
     retrieved document context.
+
     """
     vectordb_path = "vectordb"  # Path to the existing ChromaDB vector database
 
