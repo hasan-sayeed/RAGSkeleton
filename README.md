@@ -168,6 +168,10 @@ The response will include sources for the context used in generating the answer,
 
 **To exit**, simply type `exit`.
 
+## Documentation
+
+Full documentation is available on [Read the Docs](https://ragskeleton.readthedocs.io/en/latest/).
+
 ## Dependency Management & Reproducibility
 
 1. Always keep your abstract (unpinned) dependencies updated in `environment.yml` and eventually
