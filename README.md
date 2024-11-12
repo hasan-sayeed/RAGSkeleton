@@ -1,4 +1,5 @@
 [![Project generated with PyScaffold](https://img.shields.io/badge/-PyScaffold-005CA0?logo=pyscaffold)](https://pyscaffold.org/)
+[![ReadTheDocs](https://readthedocs.org/projects/rag_skeleton/badge/?version=latest)](https://ragskeleton.readthedocs.io/en/latest/)
 [![GitHub issues](https://img.shields.io/github/issues/hasan-sayeed/RAGSkeleton)](https://github.com/hasan-sayeed/RAGSkeleton/issues)
 [![GitHub Discussions](https://img.shields.io/github/discussions/hasan-sayeed/RAGSkeleton)](https://github.com/hasan-sayeed/RAGSkeleton/discussions)
 [![Last Committed](https://img.shields.io/github/last-commit/hasan-sayeed/RAGSkeleton)](https://github.com/hasan-sayeed/RAGSkeleton/commits/main/)
