@@ -134,6 +134,8 @@ This will prompt you for your Hugging Face access token. After logging in, you c
 ### Option 2: API Mode
 In API mode, the model is accessed via the Hugging Face API. This is useful if you prefer not to host the model locally or lack the computational resources.
 
+With the API, you can opt for larger models that might otherwise be challenging to run locally. However, keep in mind that the Hugging Face Free API has a model size limit of 10GB. If you need to use larger models, consider a paid API plan or explore model optimization techniques.
+
 **Run the Chatbot via Hugging Face API**
 
    ```bash
@@ -147,7 +149,7 @@ In API mode, the model is accessed via the Hugging Face API. This is useful if y
 **Example:**
 
    ```bash
-   python src/rag_skeleton/run.py --load_mode api --model_name "meta-llama/Llama-3.2-3B-Instruct" --api_token YOUR_API_TOKEN
+   python src/rag_skeleton/run.py --load_mode api --model_name "meta-llama/Meta-Llama-3-8B-Instruct" --api_token YOUR_API_TOKEN
    ```
 
 **Note:** You must have a Hugging Face account and an API token to use the API mode. You can obtain an API token by signing up at [Hugging Face] and navigating to your account settings.
