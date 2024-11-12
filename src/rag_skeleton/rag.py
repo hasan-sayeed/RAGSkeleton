@@ -56,7 +56,23 @@ class RAGPipeline:
         return doc_text, sources
 
     def setup_pipeline(self):
-        """Sets up the prompt template and full RAG pipeline with formatting and output parsing."""
+        """
+        Sets up the full RAG pipeline with retrieval, prompt formatting, and text generation.
+
+        This method configures the RAG pipeline by:
+        - Defining the prompt template that guides the language model on how to respond to user queries.
+        - Initializing the `PromptTemplate` with the defined format to structure the question, context, and conversation history.
+        - Setting up the `rag_chain` pipeline, which includes:
+            - Document retrieval: Retrieves relevant documents based on the user’s query.
+            - Context formatting: Incorporates retrieved documents and conversation history.
+            - Language model invocation: Passes the formatted prompt to the language model for generating a response.
+            - Output parsing: Structures the final output format for the response.
+
+        Raises:
+        - ValueError: If any pipeline component is misconfigured.
+
+        The final `rag_chain` processes queries end-to-end, combining retrieval and generation.
+        """
         
         # Define the prompt template with memory format
         prompt_template = """

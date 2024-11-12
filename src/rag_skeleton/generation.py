@@ -27,11 +27,27 @@ class TextGenerator:
         self.tokenizer = None
 
     def load_model(self):
-        """Loads the LLM model and tokenizer and sets up the text generation pipeline."""
+        """
+        Loads the LLM model and tokenizer and sets up the text generation pipeline.
+
+        If `load_mode` is set to "api", it uses the Hugging Face API to load the model 
+        and requires an API token. If `load_mode` is "local", it loads the model and tokenizer 
+        locally from the Hugging Face repository.
+
+        Raises:
+        - ValueError: If `load_mode` is "api" and `api_token` is not provided.
+        
+        Configurations:
+        - For both "api" and "local" modes, specific parameters such as `temperature`, 
+          `do_sample`, `repetition_penalty`, and `max_new_tokens` are set to control 
+          text generation behavior.
+        - For the local model, the `eos_token_id` parameter is set to stop generation at 
+          specified tokens, ensuring response clarity.
+        """
         if self.load_mode == "api":
             if not self.api_token:
                 raise ValueError("Hugging Face API token is required for 'api' load mode.")
-            # Use HuggingFaceHub for loading the model via API
+            # Use HuggingFaceEndpoint for loading the model via API
             self.llm = HuggingFaceEndpoint(
                 endpoint_url=f"https://api-inference.huggingface.co/models/{self.model_name}",
                 huggingfacehub_api_token=self.api_token,
