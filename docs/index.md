@@ -2,18 +2,14 @@
 
 ![RAGSkeleton Logo](./_static/RAGSkeleton-logo.png)
 
-RAGSkeleton: A foundational, modular framework for building customizable Retrieval-Augmented Generation (RAG) systems across any domain.
+**RAGSkeleton** is a modular, foundational framework designed to streamline the creation of Retrieval-Augmented Generation (RAG) systems. By combining retrieval mechanisms with language model generation, RAGSkeleton enables developers and researchers to build adaptable, context-aware solutions across diverse domains. This framework offers a flexible structure to retrieve relevant information from document databases, generate precise responses to user queries, and easily incorporate domain-specific models and retrieval methods. RAGSkeleton serves as an intuitive foundation for applications in natural language understanding, question-answering, and document-centric AI tasks.
 
+## Key Features
 
-## Note
-
-> This is the main page of your project's [Sphinx] documentation. It is
-> formatted in [Markdown]. Add additional pages by creating md-files in
-> `docs` or rst-files (formatted in [reStructuredText]) and adding links to
-> them in the `Contents` section below.
->
-> Please check [Sphinx] and [MyST] for more information
-> about how to document your project and how to configure your preferences.
+- **Modular Structure:** Allows for easy customization and integration with various models.
+- **Domain Flexibility:** Supports diverse applications, from scientific literature to customer support.
+- **Compatibility:** Works with both local and cloud-hosted language models.
+- **Scalability:** Built to support scalable document processing and information retrieval.
 
 
 ## Contents
