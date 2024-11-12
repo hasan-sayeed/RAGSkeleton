@@ -66,7 +66,13 @@ Place your raw PDF files in the `data/raw` directory. Ensure the folder contains
 
 ### 2. Process and Index Documents
 
-Navigate to the project root directory and run the following code to process the documents:
+To process and index your documents, navigate to the project root directory and open a Python interactive session by typing:
+
+   ```bash
+   python
+   ```
+
+Then, run the following code to load, process, and create the vector database:
 
    ```bash
    from src.rag_skeleton.data_processing import DataProcessor
@@ -74,6 +80,12 @@ Navigate to the project root directory and run the following code to process the
    # Initialize and run data processing
    process_data = DataProcessor()
    process_data.process_and_create_db()
+   ```
+
+After running these commands, exit the Python session by typing:
+
+   ```bash
+   exit()
    ```
 
 This step will:
