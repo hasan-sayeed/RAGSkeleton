@@ -91,8 +91,8 @@ class RAGPipeline:
         If you lack sufficient information, respond with "I do not know". Don't fabricate answers.
         <|eot_id|>
         <|start_header_id|>user<|end_header_id|>
-        Question: {question}
-        Context: {context}<|eot_id|>
+        Context: {context}
+        Question: {question}<|eot_id|>
         <|start_header_id|>assistant<|end_header_id|>
         """
 
