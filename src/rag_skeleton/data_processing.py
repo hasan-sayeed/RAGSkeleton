@@ -1,5 +1,7 @@
 # src/rag_skeleton/data_processing.py
 import os
+import gc
+import torch
 from langchain_community.document_loaders import PyMuPDFLoader
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 from langchain_huggingface import HuggingFaceEmbeddings
@@ -10,15 +12,17 @@ class DataProcessor:
     Handles loading, processing, and creating vector databases for documents.
     """
 
-    def __init__(self, data_path="data/raw", vectordb_path="vectordb", embedding_model="Alibaba-NLP/gte-large-en-v1.5"):
+    def __init__(self, vectordb_path, data_path="data/raw", embedding_model="Alibaba-NLP/gte-large-en-v1.5"):
         """
         Initialize the DataProcessor with default values. 
 
         Parameters:
         - data_path: str, path to the directory containing raw PDF files.
                      Default is "data/raw".
+
         - vectordb_path: str, path to the directory where the vector database will be stored.
                          Default is "vectordb".
+                         
         - embedding_model: str, the embedding model to be used for vectorization.
                            Default is "Alibaba-NLP/gte-large-en-v1.5".
 
@@ -67,7 +71,9 @@ class DataProcessor:
 
         Parameters:
         - docs: list, documents to split.
+
         - chunk_size: int, size of each chunk. Default is 1500.
+
         - chunk_overlap: int, overlap between chunks. Default is 100.
 
         Returns:
@@ -91,7 +97,8 @@ class DataProcessor:
             embedding=self.embedding,
             persist_directory=self.vectordb_path
         )
-        print(f"VectorDB created and saved in directory: {self.vectordb_path}")
+
+        print(f"Knowledge base created and saved in directory: {self.vectordb_path}")
 
     def process_and_create_db(self):
         """Main method to load, split, and create vectorDB."""
