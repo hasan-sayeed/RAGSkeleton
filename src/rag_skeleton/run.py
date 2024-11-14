@@ -9,7 +9,8 @@ from rag_skeleton.data_processing import DataProcessor
 default_vdb_dir = Path(__file__).resolve().parent / "data" / "vectordb"
 default_vdb_dir.mkdir(parents=True, exist_ok=True)
 
-def main(data_path=None, load_mode="local", model_name="meta-llama/Llama-3.2-3B-Instruct", api_token=None, vectordb_path=default_vdb_dir):
+def main(data_path=None, load_mode="local", model_name="meta-llama/Llama-3.2-3B-Instruct", 
+         api_token=None, vectordb_path=default_vdb_dir):
     """
     Initializes the RAG pipeline, ensuring the vector database is available or created.
     
@@ -17,11 +18,9 @@ def main(data_path=None, load_mode="local", model_name="meta-llama/Llama-3.2-3B-
 
     - data_path (str): Optional path to a directory of PDF files to process and build a new vector database.
 
-    - load_mode (str): Specifies whether to load the model locally or via Hugging Face API.
-                       Options are 'local' (default) or 'api'.
+    - load_mode (str): Specifies whether to load the model locally or via Hugging Face API. Options are 'local' (default) or 'api'.
 
-    - model_name (str): The name of the language model to use for generation.
-                        Default is 'meta-llama/Llama-3.2-3B-Instruct'.
+    - model_name (str): The name of the language model to use for generation. Default is 'meta-llama/Llama-3.2-3B-Instruct'.
 
     - api_token (str, optional): Hugging Face API token, required if `load_mode` is set to 'api'.
     

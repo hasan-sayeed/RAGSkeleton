@@ -18,14 +18,11 @@ class DataProcessor:
 
         Parameters:
         
-        - data_path: str, path to the directory containing raw PDF files.
-                     Default is "data/raw".
+        - data_path: str, path to the directory containing raw PDF files. Default is "data/raw".
 
-        - vectordb_path: str, path to the directory where the vector database will be stored.
-                         Default is "vectordb".
+        - vectordb_path: str, path to the directory where the vector database will be stored. Default is "vectordb".
                          
-        - embedding_model: str, the embedding model to be used for vectorization.
-                           Default is "Alibaba-NLP/gte-large-en-v1.5".
+        - embedding_model: str, the embedding model to be used for vectorization. Default is "Alibaba-NLP/gte-large-en-v1.5".
 
         Note:
         These are the default values. We suggest models from the MTEB leaderboard
