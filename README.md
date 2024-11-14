@@ -25,148 +25,135 @@ This project was originally developed as a Retrieval-Augmented Generation (RAG) 
 
 With this skeleton, users can seamlessly swap out different components—such as the embedding model, vector database, or LLM for response generation—with their preferred options, and quickly build a RAG system suited to their data and needs. This architecture significantly reduces the time and effort required to create a custom RAG system.
 
-## Installation
+## Installation via pip
 
-To set up the necessary environment:
+This section is recommended for users who want a quick setup for running RAGSkeleton with minimal configuration.
 
-1. **Create the Conda Environment**: Use the provided `environment.yml` file to create a new conda environment with all necessary dependencies:
+### 1. Installation
+
+- **Create a Conda Environment**
+
+   To ensure compatibility, first set up a new conda environment:
 
    ```bash
-   conda env create -f environment.yml
-   ```
-
-2. **Activate the Environment**: 
-   
-   ```bash
+   conda create -n rag_skeleton python=3.10
    conda activate rag_skeleton
    ```
 
-NOTE: The conda environment will have RAGSkeleton installed in editable mode.
-Some changes, e.g., in setup.cfg, might require you to run pip install -e . again.
+- **Install via pip**
 
-3. **Optional Setup for Git Hooks:**
-
-- Install pre-commit git hooks with:
+   Install RAGSkeleton and its dependencies using pip:
 
    ```bash
-   pre-commit install
+   pip install rag_skeleton
    ```
 
-- This configuration can be modified in .pre-commit-config.yaml.
-- Install nbstripout to automatically remove notebook output cells in committed files:
+### 2. Login to Hugging Face 
+
+RAGSkeleton relies on Hugging Face for both the embedding model and the generative language model. Log in to Hugging Face from the terminal to access the necessary models:
+
+```bash
+huggingface-cli login
+```
+
+Enter your Hugging Face access token when prompted. You can obtain an API token by signing up at [Hugging Face] and navigating to your account settings.
+
+**Note:** Some models, like Meta LLaMA, may require additional permission from the owner on Hugging Face. To use these models, request access through the model's Hugging Face page, and you’ll be notified when access is granted.
+
+### 3. Run the RAG System
+
+Run RAGSkeleton with:
+
+```bash
+rag_skeleton --data_path /path/to/your/pdf/folder --load_mode local --model_name "meta-llama/Llama-3.2-3B-Instruct"
+```
+
+- `--data_path`: Path to a directory of PDF files for creating a vector database. If omitted, the system will use the existing knowledge base (if available) or prompt you to provide a path. If you want to ground your RAG on a different set of documents, simply provide the new directory path here, and the system will create a fresh knowledge base.
+
+- `--load_mode`: Specify `local` to use a model hosted on your system, or `api` to use Hugging Face's API. `local` mode is suitable if you have the necessary computational resources, while `api` mode is useful if you prefer not to host the model locally or lack the computational resources.
+
+- `--model_name`: Name of the language model to use. Default is "meta-llama/Llama-3.2-3B-Instruct". Any model available on Hugging Face can be specified here, allowing you to choose models best suited to your requirements.
+
+- `--api_token`: Required if using the Hugging Face API (--load_mode api).
+
+**Note:** With the API, you can opt for larger models that might otherwise be challenging to run locally. However, keep in mind that the Hugging Face Free API has a model size limit of 10GB. If you need to use larger models, consider a paid API plan or explore model optimization techniques.
+
+### Usage
+
+When you start RAGSkeleton, you’ll be welcomed by a chatbot interface where you can ask questions. The system will retrieve relevant information from the knowledge base and generate responses grounded in the PDF documents you provided.
+
+To exit, type `exit`.
+
+
+## Running the RAG System from Source
+
+For developers and contributors who want to work with the source code or customize the setup.
+
+### 1. Clone the Repository
+
+First, clone the repository and navigate to the project root directory:
+
+```bash
+git clone https://github.com/hasan-sayeed/RAGSkeleton.git
+cd RAGSkeleton
+```
+
+### 2. Set Up the Environment
+
+- Create a Conda Environment:
 
    ```bash
-   nbstripout --install --attributes notebooks/.gitattributes
+   conda env create -f environment.yml
+   conda activate rag_skeleton
    ```
 
-## Setting Up the RAG System
+- Login to Hugging Face
 
-### 1. Prepare Documents
-
-Place your raw PDF files in the `data/raw` directory. Ensure the folder contains the files you want to process and query.
-
-### 2. Process and Index Documents
-
-To process and index your documents, navigate to the project root directory and open a Python interactive session by typing:
-
-   ```bash
-   python
-   ```
-
-Then, run the following code to load, process, and create the vector database:
-
-   ```bash
-   from src.rag_skeleton.data_processing import DataProcessor
-
-   # Initialize and run data processing
-   process_data = DataProcessor()
-   process_data.process_and_create_db()
-   ```
-
-After running these commands, exit the Python session by typing:
-
-   ```bash
-   exit()
-   ```
-
-This step will:
-
-- Load the PDF files.
-- Parse and split them into chunks of text.
-- Create an indexable vector database for efficient document retrieval.
-
-**Default Components:**
-
-- The default vector store used is **Chroma**, an open-source vector database optimized for speed and flexibility.
-- The default embedding model is **"Alibaba-NLP/gte-large-en-v1.5"**, chosen for its smaller size and good Retrieval Average on the **Massive Text Embedding Benchmark (MTEB) Leaderboard** at the time of this project.
-Note: The MTEB leaderboard is frequently updated with new and improved models. While `"Alibaba-NLP/gte-large-en-v1.5"` was a top choice during development, you may want to explore updated models on the [MTEB leaderboard] to identify the best current model for your specific needs.
-
-## Running the RAG System
-
-You can run the RAG system in two modes: **local** and **API**. The default mode is **local**.
-
-### Option 1: Local Mode
-
-In local mode, the model is loaded from your local machine. This option is suitable if you have the necessary computational resources.
-
-**Run the Chatbot Locally**
-
-Before running locally, ensure you have access to the Hugging Face model. You’ll need to log in to Hugging Face and download the model the first time you use it. Run the following command to log in to Hugging Face from your terminal:
+   Similar to the pip installation, login to Hugging Face:
 
    ```bash
    huggingface-cli login
    ```
 
-This will prompt you for your Hugging Face access token. After logging in, you can proceed to load the model locally.
+- **Optional Setup for Git Hooks:**
 
-   ```bash
-   python src/rag_skeleton/run.py --load_mode local --model_name "your_model_name"
-   ```
+   - Install pre-commit git hooks with:
 
-- `--load_mode`: Set to `local` to load the model locally (default is `local`).
-- `--model_name`: Specify the model name you want to use. The default is `"meta-llama/Llama-3.2-3B-Instruct"`.
+      ```bash
+      pre-commit install
+      ```
 
-**Example:**
+   - This configuration can be modified in .pre-commit-config.yaml.
+   - Install nbstripout to automatically remove notebook output cells in committed files:
 
-   ```bash
-   python src/rag_skeleton/run.py --load_mode local --model_name "meta-llama/Llama-3.2-3B-Instruct"
-   ```
+      ```bash
+      nbstripout --install --attributes notebooks/.gitattributes
+      ```
 
-### Option 2: API Mode
-In API mode, the model is accessed via the Hugging Face API. This is useful if you prefer not to host the model locally or lack the computational resources.
+### 3. Run the RAG System
 
-With the API, you can opt for larger models that might otherwise be challenging to run locally. However, keep in mind that the Hugging Face Free API has a model size limit of 10GB. If you need to use larger models, consider a paid API plan or explore model optimization techniques.
+To run the RAG system directly from the source, use the -m flag with Python to specify the module path. This will invoke the __main__.py entry point, which manages command-line arguments and initiates the chatbot.
 
-**Run the Chatbot via Hugging Face API**
+```bash
+python -m src.rag_skeleton --data_path /path/to/your/pdf/folder --load_mode local --model_name "meta-llama/Llama-3.2-3B-Instruct"
+```
 
-   ```bash
-   python src/rag_skeleton/run.py --load_mode api --model_name "your_model_name" --api_token YOUR_API_TOKEN
-   ```
+- `--data_path`: Path to a directory of PDF files for creating a vector database. If omitted, the system will use the existing knowledge base (if available) or prompt you to provide a path. If you want to ground your RAG on a different set of documents, simply provide the new directory path here, and the system will create a fresh knowledge base.
 
-- `--load_mode`: Set to `api` to use the Hugging Face API.
-- `--model_name`: Specify the model name available on Hugging Face Hub.
-- `--api_token`: Your Hugging Face API token (required when using `api` mode).
+- `--load_mode`: Specify `local` to use a model hosted on your system, or `api` to use Hugging Face's API. `local` mode is suitable if you have the necessary computational resources, while `api` mode is useful if you prefer not to host the model locally or lack the computational resources.
 
-**Example:**
+- `--model_name`: Name of the language model to use. Default is "meta-llama/Llama-3.2-3B-Instruct". Any model available on Hugging Face can be specified here, allowing you to choose models best suited to your requirements.
 
-   ```bash
-   python src/rag_skeleton/run.py --load_mode api --model_name "meta-llama/Meta-Llama-3-8B-Instruct" --api_token YOUR_API_TOKEN
-   ```
+- `--api_token`: Required if using the Hugging Face API (--load_mode api).
 
-**Note:** You must have a Hugging Face account and an API token to use the API mode. You can obtain an API token by signing up at [Hugging Face] and navigating to your account settings.
+**Note:** With the API, you can opt for larger models that might otherwise be challenging to run locally. However, keep in mind that the Hugging Face Free API has a model size limit of 10GB. If you need to use larger models, consider a paid API plan or explore model optimization techniques.
 
-## Usage
-When you run the RAG system, you'll be greeted with:
+### Usage
 
-   ```bash
-   Welcome to the RAG chatbot. Type 'exit' to quit.
-   ```
+When you start RAGSkeleton, you’ll be welcomed by a chatbot interface where you can ask questions. The system will retrieve relevant information from the knowledge base and generate responses grounded in the PDF documents you provided.
 
-Type your questions into the chatbot interface. The system will provide answers grounded in the content of your documents.
+To exit, type `exit`.
 
-The response will include sources for the context used in generating the answer, helping you trace the information back to the original documents. These sources will be listed at the end of the response, labeled with document titles or other metadata for easy reference.
-
-**To exit**, simply type `exit`.
 
 ## Documentation
 
