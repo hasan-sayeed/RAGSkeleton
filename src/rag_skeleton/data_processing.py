@@ -17,6 +17,7 @@ class DataProcessor:
         Initialize the DataProcessor with default values. 
 
         Parameters:
+        
         - data_path: str, path to the directory containing raw PDF files.
                      Default is "data/raw".
 
@@ -42,10 +43,13 @@ class DataProcessor:
         Loads PDF documents from the specified data path and optionally enriches metadata.
 
         Parameters:
+
         - enrich_metadata (bool): If True, add metadata to each document (e.g., name and year).
 
         Returns:
+
         - list: List of loaded documents with optional metadata.
+
         """
         docs = []
         for file in os.listdir(self.data_path):
@@ -70,6 +74,7 @@ class DataProcessor:
         Splits documents into chunks for vectorization.
 
         Parameters:
+
         - docs: list, documents to split.
 
         - chunk_size: int, size of each chunk. Default is 1500.
@@ -77,7 +82,9 @@ class DataProcessor:
         - chunk_overlap: int, overlap between chunks. Default is 100.
 
         Returns:
+
         - list: List of document chunks.
+
         """
         splitter = RecursiveCharacterTextSplitter(chunk_size=chunk_size, chunk_overlap=chunk_overlap)
         return splitter.split_documents(docs)
@@ -87,7 +94,9 @@ class DataProcessor:
         Creates and stores the vector database in ChromaDB.
 
         Parameters:
+
         - docs: list, document chunks to vectorize and store.
+
         """
         if not os.path.exists(self.vectordb_path):
             os.makedirs(self.vectordb_path)

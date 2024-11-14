@@ -12,8 +12,11 @@ class DocumentRetriever:
         Initializes the DocumentRetriever with the path to the ChromaDB database and an embedding model.
 
         Parameters:
+
         - vectordb_path: str, path to the vector database directory. Default is "vectordb".
+
         - embedding_model_name: str, embedding model name for generating query embeddings.
+
         """
         self.vectordb_path = vectordb_path
         self.embedding = HuggingFaceEmbeddings(model_name=embedding_model_name, model_kwargs={"trust_remote_code":True})   # https://github.com/langchain-ai/langchain/issues/6080#issuecomment-1963311548
@@ -24,10 +27,14 @@ class DocumentRetriever:
         Returns a retriever instance for retrieving similar documents.
 
         Parameters:
+
         - search_type: str, type of search (Can be "similarity", "mmr", or "similarity_score_threshold"). Default is "similarity".
+        
         - search_kwargs: dict, additional search parameters. Default is None.
 
         Returns:
+
         - retriever: a retriever instance for document retrieval.
+        
         """
         return self.vector_store.as_retriever(search_type=search_type, search_kwargs=search_kwargs)

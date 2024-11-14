@@ -17,6 +17,7 @@ class RAGPipeline:
         Initializes the RAGPipeline with retrieval and generation components.
 
         Parameters:
+
         - vectordb_path: str, path to the ChromaDB vector database directory.
 
         - embedding_model_name: str, name of the embedding model used for query embeddings.
@@ -26,6 +27,7 @@ class RAGPipeline:
         - load_mode: str, whether to load the model locally or from the Hugging Face API ("local" or "api").
 
         - api_token: str, Hugging Face API token, required if load_mode is "api".
+
         """
         # Set up document retriever
         self.retriever = DocumentRetriever(vectordb_path=vectordb_path, embedding_model_name=embedding_model_name)
@@ -44,10 +46,13 @@ class RAGPipeline:
         Formats retrieved documents and conversation history for the prompt context.
 
         Parameters:
+
         - docs: list of documents retrieved for the query.
 
         Returns:
+
         - tuple: (str, list) - formatted document text with history, and list of sources.
+
         """
         doc_text = "\n\n".join(doc.page_content for doc in docs)
         sources = [doc.metadata.get('source', 'Unknown source') for doc in docs]
@@ -64,6 +69,7 @@ class RAGPipeline:
         Sets up the full RAG pipeline with retrieval, prompt formatting, and text generation.
 
         This method configures the RAG pipeline by:
+
             - Defining the prompt template that guides the language model on how to respond to user queries.
 
             - Initializing the `PromptTemplate` with the defined format to structure the question, context, and conversation history.
@@ -79,9 +85,11 @@ class RAGPipeline:
                 - Output parsing: Structures the final output format for the response.
 
         Raises:
+
             ValueError: If any pipeline component is misconfigured.
 
         The final `rag_chain` processes queries end-to-end, combining retrieval and generation.
+        
         """
         
         # Define the prompt template with memory format
@@ -112,10 +120,13 @@ class RAGPipeline:
         Returns the prompt that will be passed to the LLM without invoking the generation step.
 
         Parameters:
+
         - question: str, the question to be previewed.
 
         Returns:
+
         - str: The formatted prompt with history and context.
+
         """
         # Retrieve documents and format them with history
         docs = self.retriever.get_retriever().invoke(question)
@@ -130,10 +141,13 @@ class RAGPipeline:
         Fetches a response to the user's query using the RAG pipeline, including conversation history.
 
         Parameters:
+
         - question: str, the question to be answered.
 
         Returns:
+
         - str: The generated response with sources for reference.
+
         """
         if not hasattr(self, 'rag_chain'):
             raise ValueError("RAG pipeline is not set up. Call setup_pipeline() first.")

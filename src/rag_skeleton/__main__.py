@@ -8,7 +8,9 @@ or through the console entry point.
 
 Example:
     To run the RAG chatbot with specified arguments:
+
         $ rag_skeleton --data_path /path/to/docs --load_mode api --model_name "model-name" --api_token <your-api-token>
+        
 """
 
 import argparse

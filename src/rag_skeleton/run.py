@@ -14,6 +14,7 @@ def main(data_path=None, load_mode="local", model_name="meta-llama/Llama-3.2-3B-
     Initializes the RAG pipeline, ensuring the vector database is available or created.
     
     Parameters:
+
     - data_path (str): Optional path to a directory of PDF files to process and build a new vector database.
 
     - load_mode (str): Specifies whether to load the model locally or via Hugging Face API.
@@ -25,6 +26,7 @@ def main(data_path=None, load_mode="local", model_name="meta-llama/Llama-3.2-3B-
     - api_token (str, optional): Hugging Face API token, required if `load_mode` is set to 'api'.
     
     - vectordb_path (Path, optional): Path to store the vector database. Defaults to package directory.
+    
     """
     
     # Convert vectordb_path to a string, as required by ChromaDB
