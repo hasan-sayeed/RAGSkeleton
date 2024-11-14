@@ -7,6 +7,8 @@ channels:
 dependencies:
   - python==3.10.15
   - pip
+  - setuptools
+  - setuptools_scm
   # BASICS
   - numpy
   - scipy==1.14.1

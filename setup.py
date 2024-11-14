@@ -39,9 +39,11 @@ if __name__ == "__main__":
                 "pymupdf==1.24.13",
                 "sentence-transformers==3.2.1",
             ],
+            packages=find_packages(where="src"),  # Add 'where' parameter here
+            package_dir={"": "src"},
             entry_points={
                 "console_scripts": [
-                    "rag_skeleton=src.rag_skeleton.run:main",
+                    "rag_skeleton=rag_skeleton.__main__:entry",
                 ],
             },
         )
