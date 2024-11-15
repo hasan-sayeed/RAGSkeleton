@@ -51,7 +51,7 @@ rag_skeleton --data_path /path/to/your/pdf/folder --load_mode local --model_name
 
 - `--model_name`: Name of the language model to use. Default is "meta-llama/Llama-3.2-3B-Instruct". Any model available on Hugging Face can be specified here, allowing you to choose models best suited to your requirements.
 
-- `--api_token`: Required if using the Hugging Face API (--load_mode api).
+- `--api_token`: Required if using the Hugging Face API (`--load_mode` api).
 
 **Note:** With the API, you can opt for larger models that might otherwise be challenging to run locally. However, keep in mind that the Hugging Face Free API has a model size limit of 10GB. If you need to use larger models, consider a paid API plan or explore model optimization techniques.
 
