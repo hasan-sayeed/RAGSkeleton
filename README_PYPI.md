@@ -1,10 +1,6 @@
 # RAGSkeleton
 
-![RAGSkeleton-logo](docs/_static/RAGSkeleton-logo.png)
-
-*Figure: Schematic of a Retrieval-Augmented Generation (RAG) system. Adapted from [Elevating Your Retrieval Game: Insights from Real-world Deployments](https://blog.ml6.eu/elevating-your-retrieval-game-insights-from-real-world-deployments-84ccfcbe6422).*
-
-**RAGSkeleton**: A foundational, modular framework for building customizable Retrieval-Augmented Generation (RAG) systems across any domain.
+A foundational, modular framework for building customizable Retrieval-Augmented Generation (RAG) systems across any domain.
 
 ## Installation via pip
 
