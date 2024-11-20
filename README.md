@@ -28,7 +28,7 @@ With this skeleton, users can seamlessly swap out different components—such as
 
 ## Tutorials
 
-To help you get started with **RAGSkeleton**, we’ve prepared an interactive Google Colab tutorial:
+To help you get started with **RAGSkeleton**, we’ve prepared a quick interactive Google Colab tutorial:
 
 - [Google Colab Tutorial: Getting Started with RAGSkeleton](https://colab.research.google.com/github/hasan-sayeed/RAGSkeleton/blob/master/notebooks/RAGSkeleton_Tutorial.ipynb)
 
