@@ -41,7 +41,7 @@ The tutorial runs on Google Colab, requiring no setup beyond logging into Huggin
 
 ## Installation via pip
 
-This section is recommended for users who want a quick setup for running RAGSkeleton with minimal configuration.
+This section is recommended for users who want a quick setup for running RAGSkeleton with minimal configuration from their own machine.
 
 ### 1. Installation
 
