@@ -1,5 +1,6 @@
 [![Project generated with PyScaffold](https://img.shields.io/badge/-PyScaffold-005CA0?logo=pyscaffold)](https://pyscaffold.org/)
 [![ReadTheDocs](https://readthedocs.org/projects/rag_skeleton/badge/?version=latest)](https://ragskeleton.readthedocs.io/en/latest/)
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/hasan-sayeed/RAGSkeleton/blob/master/notebooks/RAGSkeleton_Tutorial.ipynb)
 [![GitHub issues](https://img.shields.io/github/issues/hasan-sayeed/RAGSkeleton)](https://github.com/hasan-sayeed/RAGSkeleton/issues)
 [![GitHub Discussions](https://img.shields.io/github/discussions/hasan-sayeed/RAGSkeleton)](https://github.com/hasan-sayeed/RAGSkeleton/discussions)
 [![Last Committed](https://img.shields.io/github/last-commit/hasan-sayeed/RAGSkeleton)](https://github.com/hasan-sayeed/RAGSkeleton/commits/main/)
@@ -24,6 +25,19 @@
 This project was originally developed as a Retrieval-Augmented Generation (RAG) system for materials science literature. However, it can be easily adapted for any domain with minimal modifications, making it a flexible RAG skeleton architecture. Users can adjust the system prompt to tailor responses to any field, making this setup a versatile foundation for a RAG system.
 
 With this skeleton, users can seamlessly swap out different components—such as the embedding model, vector database, or LLM for response generation—with their preferred options, and quickly build a RAG system suited to their data and needs. This architecture significantly reduces the time and effort required to create a custom RAG system.
+
+## Tutorials
+
+To help you get started with **RAGSkeleton**, we’ve prepared an interactive Google Colab tutorial:
+
+- [Google Colab Tutorial: Getting Started with RAGSkeleton](https://colab.research.google.com/github/hasan-sayeed/RAGSkeleton/blob/master/notebooks/RAGSkeleton_Tutorial.ipynb)
+
+In this tutorial, you’ll learn how to:
+1. Parse and index PDF files into a vector database.
+2. Use a Retrieval-Augmented Generation (RAG) pipeline to query the documents.
+3. Ask questions interactively and get responses grounded in your documents, with links to the source documents.
+
+The tutorial runs on Google Colab, requiring no setup beyond logging into Hugging Face and uploading your data to Google Drive.
 
 ## Installation via pip
 
