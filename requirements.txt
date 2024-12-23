@@ -1,0 +1,15 @@
+python==3.10.15
+setuptools
+numpy
+scipy==1.14.1
+tqdm==4.67.0
+click==8.1.7
+ipython
+langchain==0.3.7
+langchain-community==0.3.5
+langchain-chroma==0.1.4
+langchain-huggingface==0.1.2
+pymupdf==1.24.13
+sentence-transformers==3.2.1
+pytest
+pytest-cov
