@@ -1,0 +1,34 @@
+name: CI Pipeline
+
+# Run the workflow on every push and pull request
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  test:
+    name: Test Python Code
+    runs-on: ubuntu-latest  # Use the latest Ubuntu environment
+
+    steps:
+      # Step 1: Checkout the code
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      # Step 2: Set up Miniconda
+      - name: Set up Miniconda
+        uses: conda-incubator/setup-miniconda@v2
+        with:
+          python-version: 3.10  # Match the Python version in your environment.yml
+          environment-file: environment.yml  # Use your environment.yml
+          activate-environment: rag_skeleton  # Match the name in your environment.yml
+          auto-activate-base: false
+
+      # Step 3: Run tests
+      - name: Run tests
+        run: |
+          pytest --disable-warnings --cov=src --cov-report=term-missing
