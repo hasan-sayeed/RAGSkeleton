@@ -5,7 +5,7 @@ channels:
   - pytorch
   # - fastai
 dependencies:
-  - python==3.10.15
+  - python==3.10
   - pip
   - setuptools
   - setuptools_scm
