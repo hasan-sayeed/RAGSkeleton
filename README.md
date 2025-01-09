@@ -227,6 +227,16 @@ Full documentation is available on [Read the Docs](https://ragskeleton.readthedo
 └── .pre-commit-config.yaml <- Configuration of pre-commit git hooks.
 ```
 
+## 🚀 Planned Features
+
+The following enhancements are coming soon to RAGSkeleton:
+
+- [ ] **Evaluate RAG Performance with Ragas Metrics** – Enable users to assess the quality of generated responses using standard RAG evaluation metrics from [Ragas](https://github.com/explodinggradients/ragas).
+- [ ] **Conceptual Understanding Score (Materials Science Specific)** – A domain-specific metric to assess how well the RAG system understands key concepts in materials science.
+- [ ] **Cross-Disciplinary Score (Materials Science Specific)** – A custom metric designed to evaluate the model’s ability to connect materials science concepts with insights from other scientific disciplines.
+
+Stay tuned! If you have suggestions or feature requests, feel free to open a discussion or issue on [GitHub](https://github.com/hasan-sayeed/RAGSkeleton/issues).
+
 ## Feedback
 
 Any questions, comments, or suggestions are welcome! This project is a flexible foundation for RAG-based applications, and we’re open to improvements that can make it even more useful across various domains.
