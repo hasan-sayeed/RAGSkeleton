@@ -233,7 +233,7 @@ The following enhancements are coming soon to RAGSkeleton:
 
 - [ ] **Evaluate RAG Performance with Ragas Metrics** – Enable users to assess the quality of generated responses using standard RAG evaluation metrics from [Ragas](https://github.com/explodinggradients/ragas).
 - [ ] **Conceptual Understanding Score (Materials Science Specific)** – A domain-specific metric to assess how well the RAG system understands key concepts in materials science.
-- [ ] **Cross-Disciplinary Score (Materials Science Specific)** – A custom metric designed to evaluate the model’s ability to connect materials science concepts with insights from other scientific disciplines.
+- [ ] **Cross-Disciplinary Score (Materials Science Specific)** – Evaluates how well the RAG system integrates knowledge from multiple disciplines (such as physics, chemistry, and mathematics) to answer complex materials science questions that require interdisciplinary understanding.
 
 Stay tuned! If you have suggestions or feature requests, feel free to open a discussion or issue on [GitHub](https://github.com/hasan-sayeed/RAGSkeleton/issues).
 
